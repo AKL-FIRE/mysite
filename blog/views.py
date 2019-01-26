@@ -51,6 +51,21 @@ def blog_list(request):
     return render(request, 'blog/blog_list.html', context)
 
 
+def blog_search(request):
+    if 's' in request.GET:
+        s = request.GET['s']
+        if not s:
+            return blog_list(request)
+        else:
+            post_list = Blog.objects.filter(title__icontains=s)
+            if len(post_list) == 0:
+                return blog_list(request)
+            else:
+                context = get_blog_list_common_data(post_list, request)
+                return render(request, 'blog/blog_list.html', context)
+    return blog_list(request)
+
+
 def blog_detail(request, blog_pk):
     blog = get_object_or_404(Blog, pk=blog_pk)
     read_cookie_key = read_statistics_once_read(request, blog)
