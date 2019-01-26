@@ -32,3 +32,4 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.LIVE2D_URL, document_root=settings.LIVE2D_ROOT)

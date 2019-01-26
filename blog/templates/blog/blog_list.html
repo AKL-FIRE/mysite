@@ -23,9 +23,9 @@
                 <div class="panel-body">
                     {% for blog in blogs %}
                         <div class="blog">
-                            <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
+                            <h3><a href="{% url 'blog_detail' blog.pk %}" id="blog_list_title">{{ blog.title }}</a></h3>
                             <p class="blog-info">
-                                <span class="glyphicon glyphicon-tag"></span><a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>&nbsp;&nbsp;
+                                <span class="glyphicon glyphicon-tag"></span><a href="{% url 'blogs_with_type' blog.blog_type.pk %}" id="blog_list_class">{{ blog.blog_type }}</a>&nbsp;&nbsp;
                                 <span class="glyphicon glyphicon-time"></span>{{ blog.created_time|date:"Y-m-d" }}&nbsp;&nbsp;
                                 <span>阅读({{ blog.get_read_num }})&nbsp;&nbsp;</span>
                                 评论({% get_common_count blog %})&nbsp;&nbsp;
@@ -87,7 +87,7 @@
                     <div class="panel-body">
                         <ul class="blog-types">
                         {% for blog_type in blog_types %}
-                            <li><a href="{% url 'blogs_with_type' blog_type.pk %}">{{ blog_type.type_name }}({{ blog_type.blog_count }})</a></li>
+                            <li><a href="{% url 'blogs_with_type' blog_type.pk %}" id="blog_list_class2">{{ blog_type.type_name }}({{ blog_type.blog_count }})</a></li>
                         {% empty %}
                             <li>暂无分类</li>
                         {% endfor %}
@@ -101,7 +101,7 @@
                     <ul>
                         {% for blog_date, blog_count in blog_dates.items %}
                             <li>
-                                <a href="{% url 'blogs_with_date' blog_date.year blog_date.month %}">
+                                <a href="{% url 'blogs_with_date' blog_date.year blog_date.month %}" id="blog_list_time_class">
                                     {{ blog_date|date:"Y年m月" }} ({{ blog_count }})
                                 </a>
                             </li>

@@ -1,0 +1,74 @@
+{
+    "mouseover": [
+        {
+            "selector": "li#today-hot",
+            "text": ["唔姆，这些文章看的人很多呦。(*^▽^*)"]
+        },
+        {
+            "selector": "li#yesterday-hot",
+            "text": ["想要看昨天的热门文章吗？"]
+        },
+        {
+            "selector": "li#7-days-hot",
+            "text": ["在一周中，我能遇到那么多朋友。(｡◕ˇ∀ˇ◕)"]
+        },
+        {
+            "selector": "a#home",
+            "text": ["又回到我们刚见面的地方了呢。"]
+        },
+        {
+            "selector": "a#blog",
+            "text": ["看看主人的博客吧。"]
+        },
+        {
+            "selector": "a#blog_list_title",
+            "text": ["要看看{text}吗？很精彩的说。( • ̀ω•́ )✧"]
+        },
+        {
+            "selector": "a#blog_list_class",
+            "text": ["点击就可以看所有有关{text}的内容了哦.(*￣∇￣*) "]
+        },
+        {
+            "selector": "a#blog_list_class2",
+            "text": ["不点进去看看吗？"]
+        },
+        {
+            "selector": "a#blog_list_time_class",
+            "text": ["时间过得可真快，都有这么多文章了呀。!!!∑(ﾟДﾟノ)ノ", "什么？年龄？人家还是小孩子。(`皿´)"]
+        },
+        {
+            "selector": "div#blog_detail_like",
+            "text": ["喜欢这篇文章就快点赞的说。(*>∀<)ﾉ))★ "]
+        },
+        {
+            "selector": "div#blog_detail_like_comment",
+            "text": ["话说，这条评论有什么特别的吗？(⊙_⊙)?"]
+        },
+        {
+            "selector": "a#blog_detail_comment_comment",
+            "text": ["人类的本质果真是复读机。(～￣▽￣)～ "]
+        },
+        {
+            "selector": "a#blog_detail_login",
+            "text": ["赶快登陆与我互动吧。φ(≧ω≦*)♪ "]
+        },
+        {
+            "selector": "a#blog_detail_register",
+            "text": ["你注册是要跟我交朋友吗？哼，我才不会高兴呢。(:3_ヽ)_"]
+        },
+        {
+            "selector": "form#comment_form",
+            "text": ["不要写会让我害羞的东西，人家最讨厌了。"]
+        },
+        {
+            "selector": ".searchbox",
+            "text": ["在找什么东西呢，需要帮忙吗？"]
+        }
+    ],
+    "click": [
+        {
+            "selector": "#landlord #live2d",
+            "text": ["不要动手动脚的！快把手拿开~~", "真…真的是不知羞耻！","Hentai！", "再摸的话我可要报警了！⌇●﹏●⌇", "110吗，这里有个变态一直在摸我(ó﹏ò｡)", "我记住你了，我要向主人告状。(#｀皿´)"]
+        }
+    ]
+}

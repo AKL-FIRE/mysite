@@ -128,7 +128,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'live2d'),
 ]
+
+# live2d
+LIVE2D_URL = '/live2d'
+LIVE2D_ROOT = os.path.join(BASE_DIR,'live2d')
 
 # media
 MEDIA_URL = '/media/'
