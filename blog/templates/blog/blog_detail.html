@@ -10,7 +10,7 @@
 {% load likes_tags %}
 
 {% block header_extends %}
-    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/../../static/blog/blog.css' %}">
     <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
     <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 {% endblock %}
@@ -120,31 +120,6 @@
             </div>
         </div>
     </div>
-        <!-- Modal -->
-        <div class="modal fade" id="login_model" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <form action="" method="POST" id="login_modal_form">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">登录</h4>
-                        </div>
-                        <div class="modal-body">
-                            {% csrf_token %}
-                            {% for field in login_form %}
-                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                {{ field }}
-                            {% endfor %}
-                            <span class="text-danger" id="login_modal_tip"></span>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">登录</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 
 {% endblock %}
@@ -295,22 +270,7 @@
              });
          }
 
-         $("#login_modal_form").submit(function (event) {
-             event.preventDefault();
-             $.ajax({
-                 url: '{% url 'login_for_modal' %}',
-                 type: 'POST',
-                 data: $(this).serialize(),
-                 chche: false,
-                 success: function (data) {
-                     if(data['status']==='SUCCESS'){
-                         window.location.reload();
-                     }else{
-                         $('#login_modal_tip').text('用户名或密码不正确');
-                     }
-                 }
-             });
-         });
+
     </script>
 {% endblock %}
 

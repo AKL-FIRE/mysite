@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericRelation
-from read_statistics.models import ReadNum, ReadNumExpandMethod, ReadDeatil
+from read_statistics.models import ReadNumExpandMethod, ReadDeatil
 
 
 class BlogType(models.Model):
