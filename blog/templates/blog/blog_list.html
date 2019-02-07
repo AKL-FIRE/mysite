@@ -31,7 +31,7 @@
                                 评论({% get_common_count blog %})&nbsp;&nbsp;
                                 点赞({% get_like_count blog %})
                             </p>
-                            <p>{{ blog.content|striptags|truncatechars_html:120 }}</p>
+                            <p>{{ blog.content|striptags|truncatechars_html:120|safe }}</p>
                         </div>
                     {% empty %}
                         <div class="blog">
