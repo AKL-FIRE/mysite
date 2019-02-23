@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+html {
+    position: relative;
+}
 body {
     margin-top: 70px!important;
     padding-bottom: 350px;
@@ -13,6 +16,9 @@ ul.navbar-right {
     margin-right: 0;
 }
 footer.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: #0E2231;
     margin-top: 2em;
 }
