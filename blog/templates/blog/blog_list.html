@@ -83,6 +83,27 @@
             </div>
             <div class="hidden-xs col-sm-4 col-md-3 col-lg-2">
                 <div class="panel panel-default">
+                    {% for attention_ in attention %}
+                    <div class="panel-heading">公告（最后发布时间{{ attention_.attention_time|date:"Y-m-d" }}&nbsp;）</div>
+                    <div class="panel-body">
+                        <ul class="blog-types">
+                            <li>
+                                <p>{{ attention_.content}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    {% empty %}
+                    <div class="panel-heading">公告</div>
+                    <div class="panel-body">
+                        <ul class="blog-types">
+                            <li>
+                                <p>暂无公告</p>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="panel panel-default">
                     <div class="panel-heading">博客分类</div>
                     <div class="panel-body">
                         <ul class="blog-types">
@@ -91,7 +112,6 @@
                         {% empty %}
                             <li>暂无分类</li>
                         {% endfor %}
-
                         </ul>
                     </div>
                 </div>

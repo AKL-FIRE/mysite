@@ -5,6 +5,7 @@ from django.db.models import Count
 
 from .models import Blog, BlogType
 from read_statistics.utils import read_statistics_once_read
+from attention.models import Attention
 
 
 
@@ -48,6 +49,8 @@ def get_blog_list_common_data(blogs_all_list, request):
 def blog_list(request):
     blogs_all_list = Blog.objects.all()
     context = get_blog_list_common_data(blogs_all_list, request)
+    attention = Attention.objects.all()
+    context['attention'] = attention
     return render(request, 'blog/blog_list.html', context)
 
 
@@ -92,3 +95,4 @@ def blogs_with_date(request, year, month):
     context = get_blog_list_common_data(blogs_all_list, request)
     context['blogs_with_date'] = '%s年%s月' % (year, month)
     return render(request, 'blog/blogs_with_date.html', context)
+
