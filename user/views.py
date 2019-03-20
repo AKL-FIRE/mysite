@@ -11,6 +11,8 @@ from django.core.mail import send_mail
 
 from .forms import LoginForm, RegForm, ChangeNicknameForm, BindEmailForm, ChangePasswordForm, ForgotPasswordForm
 from .models import Profile
+from blog.models import Blog
+import random
 
 
 def login_for_modal(request):
@@ -66,7 +68,13 @@ def logout(request):
     return redirect(request.GET.get('from', reverse('home')))
 
 def user_info(request):
+    blogs_count = Blog.objects.all().count()
+    blogs = []
+    for i in range(3):
+        index = random.randint(1, blogs_count)
+        blogs.append(Blog.objects.get(pk=index))
     context = {}
+    context['blogs'] = blogs
     return render(request, 'user/user_info.html', context)
 
 def change_nickname(request):
@@ -200,3 +208,4 @@ def update_head(request):
         profile.save()
     context = {}
     return render(request, 'user/user_info.html', context)
+
