@@ -1,6 +1,7 @@
 import string
 import random
 import time
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -183,3 +184,19 @@ def forgot_password(request):
     context['form'] = form
     context['return_back_url'] = redirect_to
     return render(request, 'user/forgot_password.html', context)
+
+
+def get_update_head(request):
+    context = {}
+    return render(request, 'user/change_head_icon.html', context)
+
+
+def update_head(request):
+    if request.method == 'POST':
+        img = request.FILES['img']
+        user = User.objects.get(username=request.user)
+        profile = Profile.objects.filter(user=user)[0]
+        profile.user_icon = img
+        profile.save()
+    context = {}
+    return render(request, 'user/user_info.html', context)

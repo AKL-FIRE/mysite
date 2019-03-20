@@ -26,11 +26,13 @@ def update_comment(request):
         # 返回数据
         data['status'] = 'SUCCESS'
         data['username'] = comment.user.get_nickname_or_username()
+        data['userhead'] = comment.user.get_user_head()
         data['comment_time'] = comment.comment_time.timestamp()
         data['text'] = comment.text
         data['content_type'] = ContentType.objects.get_for_model(comment).model
         if not parent is None:
             data['reply_to'] = comment.reply_to.get_nickname_or_username()
+            data['reply_to_head'] = comment.reply_to.get_user_head()
         else:
             data['reply_to'] = ''
         data['pk'] = comment.pk

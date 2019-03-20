@@ -1,0 +1,26 @@
+ul.user_ul li {
+    margin-top: 2em;
+    border-bottom: #0E2231 solid 1px;
+    padding-bottom: 1em;
+}
+
+div .user_left_box{
+    background-color: cornsilk;
+}
+
+ul.user_ul a.user_change_head{
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin-top: 1em;
+}
+
+div .user_div_ji{
+    background-color: cornsilk;
+    height: 608px;
+    border-right: black dashed 1px;
+}
+
+div .row{
+    background-color: floralwhite;
+}

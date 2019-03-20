@@ -53,6 +53,7 @@
                             {% else %}
                                 {{ user.username }}
                             {% endif %}
+                            <img src="{{ user.get_user_head }}" width="22px" height="22px" />
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">

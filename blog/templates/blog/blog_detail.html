@@ -85,6 +85,7 @@
                 {% get_comment_list blog as comments %}
                 {% for comment in comments %}
                     <div id="root_{{ comment.pk }}" class="comment">
+                        <img src="{{ comment.user.get_user_head }}" width="50px" height="50px" />
                         <span>{{ comment.user.get_nickname_or_username }}</span>
                         <span>({{ comment.comment_time|date:"Y-m-d H:i:s" }}):</span>
                         <div id="comment_{{ comment.pk }}">
@@ -98,9 +99,11 @@
 
                             {% for reply in comment.root_comment.all %}
                                 <div class="reply">
+                                    <img src="{{ reply.user.get_user_head }}" width="50px" height="50px" />
                                     <span>{{ reply.user.get_nickname_or_username }}</span>
                                     <span>({{ reply.comment_time|date:"Y-m-d H:i:s" }}):</span>
                                     <span>回复</span>
+                                    <img src="{{ reply.reply_to.get_user_head }}" width="50px" height="50px" />
                                     {{ reply.reply_to.get_nickname_or_username }}:
                                     <div id="comment_{{ reply.pk }}">
                                         {{ reply.text|safe }}
@@ -185,6 +188,7 @@
                     if($('#reply_comment_id').val()==='0'){
                         //插入评论
                         var comment_html = '<div id="root_{0}" class="comment">' +
+                        '<img src="{5}" width="50px" height="50px" />' +
                         '<span>{1}</span>' +
                         '<span>({2}):</span>' +
                         '<div id="comment_{0}"> {3} </div>' +
@@ -194,14 +198,16 @@
                     '</div>' +
                     '<a href="javascript:reply({0})" id="blog_detail_comment_comment">回复</a>' +
                     '</div>';
-                        comment_html = comment_html.format(data['pk'], data['username'],  timeFormat(data['comment_time']), data['text'], data['content_type']);
+                        comment_html = comment_html.format(data['pk'], data['username'],  timeFormat(data['comment_time']), data['text'], data['content_type'], data['userhead']);
                         $("#comment_list").prepend(comment_html);
                     }else{
                         //插入回复
                         var reply_html = '<div class="reply">' +
+                                    '<img src="{6}" width="50px" height="50px" />' +
                                     '<span>{1}</span>' +
                                     '<span>({2}):</span>' +
                                     '<span>回复</span>' +
+                                    '<img src="{7}" width="50px" height="50px" />' +
                                     '<span>{3}:</span>' +
                                     '<div id="comment_{0}"> {4} </div>' +
                                     '<div class="like" onclick="likeChange(this, \'{5}\', {0})" id="blog_detail_like_comment">' +
@@ -210,7 +216,7 @@
                                     '</div>' +
                                     '<a href="javascript:reply({0})" id="blog_detail_comment_comment">回复</a>' +
                                 '</div>';
-                        reply_html = reply_html.format(data['pk'], data['username'], timeFormat(data['comment_time']), data['reply_to'], data['text'], data['content_type']);
+                        reply_html = reply_html.format(data['pk'], data['username'], timeFormat(data['comment_time']), data['reply_to'], data['text'], data['content_type'], data['userhead'], data['reply_to_head']);
                         $("#root_" + data['root_pk']).append(reply_html);
                     }
 
