@@ -1,7 +1,5 @@
 import string
-import random
 import time
-from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
