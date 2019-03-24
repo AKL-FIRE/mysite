@@ -17,6 +17,12 @@ class Comment(models.Model):
     parent = models.ForeignKey('self', null=True, on_delete=models.CASCADE, related_name='parent_comment')
     reply_to = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name="replies")
 
+    def get_url(self):
+        return self.content_object.get_url()
+
+    def get_user(self):
+        return self.user
+
     def __str__(self):
         return self.text
 
