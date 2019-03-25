@@ -48,6 +48,8 @@ def register(request):
             # 创建用户
             user = User.objects.create_user(username, email, password)
             user.save()
+            user_profile = Profile.objects.create(user=user, nickname='')
+            user_profile.save()
             # 清除session
             del request.session['register_code']
             # 登录用户
