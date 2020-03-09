@@ -8,6 +8,9 @@ html {
 body {
     margin-top: 70px!important;
     padding-bottom: 350px;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
 }
 ul {
     list-style-type: none;
@@ -21,6 +24,7 @@ footer.footer {
     width: 100%;
     background-color: #0E2231;
     margin-top: 2em;
+    flex: 0;
 }
 footer h4{
     color: #FFFFFF;

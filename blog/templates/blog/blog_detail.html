@@ -5,7 +5,7 @@
 {% endblock %}
 {% block nav_blog_active %}active{% endblock %}
 
-{% load staticfiles %}
+{% load static %}
 {% load comment_tags %}
 {% load likes_tags %}
 
@@ -263,7 +263,7 @@
                          var liked_num = $(obj.getElementsByClassName('liked-num'));
                          liked_num.text(data['liked_num']);
                      }else{
-                        if(data['code']==400){
+                        if(data['code']===400){
                             $('#login_model').modal('show');
                         }else{
                             alert(data['message']);

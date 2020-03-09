@@ -70,11 +70,12 @@ def logout(request):
 def user_info(request):
     blogs_count = Blog.objects.all().count()
     blogs = []
-    for i in range(3):
-        index = random.randint(1, blogs_count)
-        blogs.append(Blog.objects.get(pk=index))
     context = {}
-    context['blogs'] = blogs
+    if Blog.objects.count() >= 3:
+        for i in range(3):
+            index = random.randint(1, blogs_count)
+            blogs.append(Blog.objects.get(pk=index))
+        context['blogs'] = blogs
     return render(request, 'user/user_info.html', context)
 
 def change_nickname(request):

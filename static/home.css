@@ -10,6 +10,7 @@ div#container {
     height: 20em;
     min-width: 20em;
     max-width: 30em;
+    flex: 1;
 }
 
 div.hot-data {
