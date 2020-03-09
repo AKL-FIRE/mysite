@@ -110,6 +110,9 @@
     </div>
 </footer>
 
+<div class="toTop" id="top-button">
+    <img src="{% static 'rocket.png' %}" alt="Top" height="100px">
+</div>
 
 <div id="landlord">
     <div class="message" style="opacity:0"></div>
@@ -150,6 +153,7 @@
 
 {% register_notify_callbacks callbacks='my_special_notification_callback' %}
 
+ <script type="text/javascript" src="{% static 'base.js' %}"></script>
 <script type="text/javascript">
     var message_Path = '/static/';
     var home_Path = 'https://lichangyu.top';  //此处修改为你的域名，必须带斜杠
